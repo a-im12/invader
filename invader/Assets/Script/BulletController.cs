@@ -13,10 +13,15 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, 0.1f, 0);
+        transform.Translate(0, 0.007f, 0);
 
-        if (transform.position.y > 5){
+        if(transform.position.y >= 5){
             Destroy(gameObject);
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D other){
+        Destroy(gameObject);
+        Destroy(other.gameObject);
     }
 }
